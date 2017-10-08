@@ -1,5 +1,8 @@
 package metier;
 
+import java.io.DataOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -58,6 +61,20 @@ public class Magasin {
         }
         
 	}
+	
+	//M�thode 
+	public void archiveLocation(String nomDeFichier, ArrayList<Location> liste)  throws IOException {
+        DataOutputStream fluxEcriture = new DataOutputStream(new FileOutputStream(nomDeFichier));
+        try{
+            for(Location loc : liste){
+                fluxEcriture.writeUTF(loc.toString());
+            }
+        }
+        finally{
+            fluxEcriture.close();
+        }
+    }
+    
     
 	//Méthode permettant d'afficher la liste des articles
     public void affiche(){
@@ -99,7 +116,7 @@ public class Magasin {
     }
     
     
-    public static void main(String args[]) throws ParseException{
+    public static void main(String args[]) throws ParseException, IOException{
     	//Test de la méthode tri()
     	ArrayList<Article> lesArticles = new ArrayList<Article>();
         ArrayList<Client> lesClients = new ArrayList<Client>();
@@ -158,6 +175,10 @@ public class Magasin {
     	for(Location l : locsEnCours){
     		System.out.println(l.toString());
     	}
+    	
+        GenerateurFic aff = new GenerateurFic();
+        
+        aff.ecrireTruc("test.loc.txt", desLocations1);
     	
     	/*
     	System.out.println(location1.getMontant());

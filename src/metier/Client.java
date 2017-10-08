@@ -88,7 +88,7 @@ public class Client {
 		
 		for(Location l : this.lesLocations){
 			System.out.println("--------" + dateAjd);
-			if(l.getDateFin().after(dateAjd) && l.getDateDeb().before(dateAjd) || l.getDateDeb().equals(dateAjd) || l.getDateFin().equals(dateAjd)){
+			if(l.getDateFin().after(dateAjd) && l.getDateDeb().before(dateAjd) || l.getDateDeb().equals(dateAjd) ||  l.getDateFin().equals(dateAjd)){
 				desLocations.add(l);
 			}
 		}

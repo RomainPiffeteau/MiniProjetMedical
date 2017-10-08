@@ -64,9 +64,23 @@ public class Location {
 
 	@Override
 	public String toString() {
+		String resultat = "+ Location : " + System.lineSeparator();
+		resultat += "Date de début : " + dateDeb.toString() + System.lineSeparator();
+		resultat += "Date de fin : " + dateFin.toString() + System.lineSeparator() + System.lineSeparator();
+		resultat += "Article(s) :" + System.lineSeparator() + System.lineSeparator();
+		int i = 1;
+		for(Article a : lesArticles){
+			resultat += "Article " + i + " :"+ System.lineSeparator();
+			resultat += "- Référence : " + a.getReference() + System.lineSeparator();
+			resultat += "- Marque : " + a.getMarque() + System.lineSeparator();
+			resultat += "- Modèle : " + a.getModele() + System.lineSeparator();
+			resultat += "- Prix : " + a.getPrix() + System.lineSeparator()+ System.lineSeparator();
+			i++;
+		}
+		resultat += "Le client : " + leClient.getNom() + " " + leClient.getPrenom() + ", " + leClient.getAdresse();
 		
-		return "Location [dateDeb=" + dateDeb + ", dateFin=" + dateFin + ", lesArticles=" + lesArticles + ", leClient="
-				+ leClient + "]";
+		resultat += System.lineSeparator() + System.lineSeparator()+ System.lineSeparator();
+				
+		return resultat;
 	}
-	
 }
