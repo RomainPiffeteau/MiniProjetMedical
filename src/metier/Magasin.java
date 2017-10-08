@@ -127,15 +127,18 @@ public class Magasin {
         
         
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        Date d1 = sdf.parse("05/09/2017");
-        Date d2 = sdf.parse("15/10/2017");
-        Date d3 = sdf.parse("13/09/2017");
-        Date d4 = sdf.parse("20/10/2017");
+        Date d1 = sdf.parse("07/10/2017");
+        Date d2 = sdf.parse("09/10/2017");
+        Date d3 = sdf.parse("08/10/2017");
+        Date d4 = sdf.parse("08/10/2017");
         
+	      System.out.println(d1);
+	      System.out.println(d2);
+	      System.out.println(d3);
         //Date test1 = sdf.parse("12/10/2017");
         //Date test2 = sdf.parse("17/10/2017");
         
-        //System.out.println(d1);
+        System.out.println(d4);
         Location location1 = new Location(d1,d2,lesArticlesLocation1,client1);
         desLocations1 = client1.getLesLocations();
         desLocations1.add(location1);
@@ -162,6 +165,5 @@ public class Magasin {
         
     	unMagasin.tri("marque");*/
     }
-
 
 }

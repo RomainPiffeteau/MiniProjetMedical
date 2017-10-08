@@ -1,5 +1,8 @@
 package metier;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -74,12 +77,18 @@ public class Client {
 		this.lesLocations = lesLocations;
 	}	
 	
-	public ArrayList<Location> getLesLocationsCourantes(){
-		Date dateAjd = new java.util.Date();
+	public ArrayList<Location> getLesLocationsCourantes() throws ParseException{
 		ArrayList<Location> desLocations = new ArrayList<Location>();
 		
+		DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+
+		Date today = new Date();
+
+		Date dateAjd = formatter.parse(formatter.format(today));
+		
 		for(Location l : this.lesLocations){
-			if(l.getDateFin().after(dateAjd)){
+			System.out.println("--------" + dateAjd);
+			if(l.getDateFin().after(dateAjd) && l.getDateDeb().before(dateAjd) || l.getDateDeb().equals(dateAjd) || l.getDateFin().equals(dateAjd)){
 				desLocations.add(l);
 			}
 		}
