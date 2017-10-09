@@ -77,8 +77,8 @@ public class Location {
 			resultat += "- Prix : " + a.getPrix() + System.lineSeparator()+ System.lineSeparator();
 			i++;
 		}
-		resultat += "Le client : " + leClient.getNom() + " " + leClient.getPrenom() + ", " + leClient.getAdresse();
-		
+		resultat += "Le client : " + leClient.getNom() + " " + leClient.getPrenom() + ", " + leClient.getAdresse() + System.lineSeparator();
+		resultat += "Montant : " + this.getMontant();
 		resultat += System.lineSeparator() + System.lineSeparator()+ System.lineSeparator();
 				
 		return resultat;

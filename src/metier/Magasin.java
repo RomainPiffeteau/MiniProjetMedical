@@ -1,13 +1,18 @@
 package metier;
 
+import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
+import java.util.Scanner;
 public class Magasin {
 	
 	//Attributs de la classe Magasin
@@ -115,6 +120,22 @@ public class Magasin {
     	return recette;    	
     }
     
+    public static String getNomFichier() throws ParseException{
+    	String numero = "";
+    	DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+		Date today = new Date();
+		Date dateAjd = formatter.parse(formatter.format(today));
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(dateAjd);	
+		int month = cal.get(Calendar.MONTH);
+		month++;
+		int year = cal.get(Calendar.YEAR);
+		numero += String.valueOf(year);
+		numero += String.valueOf(month);
+		numero += ".loc.txt";
+		return numero;
+    }
+    
     
     public static void main(String args[]) throws ParseException, IOException{
     	//Test de la mÃ©thode tri()
@@ -178,13 +199,42 @@ public class Magasin {
     	
         GenerateurFic aff = new GenerateurFic();
         
-        aff.ecrireTruc("test.loc.txt", desLocations1);
+        ArrayList<Location> test = new ArrayList<Location>();
+        for(Client c : lesClients){
+        	test.addAll(c.getLocationDuMois());
+        }
+        
+        aff.ecrireTruc(getNomFichier(), test);
     	
     	/*
     	System.out.println(location1.getMontant());
     	System.out.println(unMagasin.calculRecette(test1,test2));
         
     	unMagasin.tri("marque");*/
+        
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        Scanner scan = new Scanner(System.in);
+        String line = "";
+
+        while (line.equalsIgnoreCase("quit") == false) {
+        	System.out.println("BONJOUR !");
+        	System.out.println("1 - Afficher l'ensemble des articles");
+        	System.out.println("2 - Enregistrer une location de matériel");
+        	System.out.println("3 - Afficher l'ensemble des locations pour un client");
+        	System.out.println("4 - Archiver les locations du mois");
+        	System.out.println("5 - Montant total des recettes entre deux dates");
+            line = scan.next();
+            
+            //do something
+        }
+
+        in.close();
     }
 
 }
+
+
+
+
+
+

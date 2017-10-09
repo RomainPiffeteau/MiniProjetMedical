@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 public class Client {
@@ -76,6 +77,26 @@ public class Client {
 	public void setLesLocations(ArrayList<Location> lesLocations) {
 		this.lesLocations = lesLocations;
 	}	
+	
+	public ArrayList<Location> getLocationDuMois() throws ParseException{
+		ArrayList<Location> uneListe = new ArrayList<Location>();
+		DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+		Date today = new Date();
+		Date dateAjd = formatter.parse(formatter.format(today));
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(dateAjd);	
+		int month = cal.get(Calendar.MONTH);
+		int year = cal.get(Calendar.YEAR);
+		for(Location l : lesLocations){
+			cal.setTime(l.getDateFin());
+			int monthL = cal.get(Calendar.MONTH);
+			int yearL = cal.get(Calendar.YEAR);	
+			if(monthL == month && yearL == year){
+				uneListe.add(l);
+			}
+		}
+		return uneListe;
+	}
 	
 	public ArrayList<Location> getLesLocationsCourantes() throws ParseException{
 		ArrayList<Location> desLocations = new ArrayList<Location>();
