@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class Magasin {
 	
 	//Attributs de la classe Magasin
-	private ArrayList<Client> lesClients;
+	private static ArrayList<Client> lesClients;
 	private ArrayList<Article> lesArticles;
 	
 	//Constructeur de la classe Magasin
@@ -68,7 +68,7 @@ public class Magasin {
 	}
 	
 	//Méthode 
-	public void archiveLocation(String nomDeFichier, ArrayList<Location> liste)  throws IOException {
+	public static void archiveLocation(String nomDeFichier, ArrayList<Location> liste)  throws IOException {
         DataOutputStream fluxEcriture = new DataOutputStream(new FileOutputStream(nomDeFichier));
         try{
             for(Location loc : liste){
@@ -92,7 +92,7 @@ public class Magasin {
     }
     
     //MÃ©thode permettant de calcul le total des recettes sur une pÃ©riode donnÃ©e
-    public double calculRecette(Date dateDeb, Date dateFin){
+    public static double calculRecette(Date dateDeb, Date dateFin){
     	double recette = 0;
     	for(Client c : lesClients){
     		for(Location l : c.getLesLocations()){
@@ -164,11 +164,11 @@ public class Magasin {
         lesArticlesLocation2.add(article5);
         
         
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        Date d1 = sdf.parse("07/10/2017");
-        Date d2 = sdf.parse("09/10/2017");
-        Date d3 = sdf.parse("08/10/2017");
-        Date d4 = sdf.parse("08/10/2017");
+        SimpleDateFormat sdformat = new SimpleDateFormat("dd/MM/yyyy");
+        Date d1 = sdformat.parse("07/10/2017");
+        Date d2 = sdformat.parse("09/10/2017");
+        Date d3 = sdformat.parse("08/10/2017");
+        Date d4 = sdformat.parse("08/10/2017");
         
 	      System.out.println(d1);
 	      System.out.println(d2);
@@ -214,16 +214,77 @@ public class Magasin {
         
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         Scanner scan = new Scanner(System.in);
-        String line = "";
+        int line = 0;
 
-        while (line.equalsIgnoreCase("quit") == false) {
+        while (line != 9) {
         	System.out.println("BONJOUR !");
         	System.out.println("1 - Afficher l'ensemble des articles");
         	System.out.println("2 - Enregistrer une location de matériel");
         	System.out.println("3 - Afficher l'ensemble des locations pour un client");
         	System.out.println("4 - Archiver les locations du mois");
         	System.out.println("5 - Montant total des recettes entre deux dates");
-            line = scan.next();
+        	System.out.println("9 - Quitter");
+            line = scan.nextInt();
+            
+            switch(line){
+            case 1:            	
+            	int line2 = 0;
+            	while (line2 != 9) {
+            		System.out.println("1 - Afficher l'ensemble des articles par référence");
+            		System.out.println("2 - Afficher l'ensemble des articles par marque");
+            		System.out.println("3 - Afficher l'ensemble des articles par modèle");
+            		System.out.println("4 - Afficher l'ensemble des articles par prix par jour de location");
+            		System.out.println("9 - Quitter");
+            		line2 = scan.nextInt();
+            		switch(line2){
+            			case 1:
+            				unMagasin.tri("reference");
+            				break;
+            			case 2:
+            				unMagasin.tri("marque");
+            				break;
+            			case 3:
+            				unMagasin.tri("modele");
+            				break;
+            			case 4:
+            				unMagasin.tri("prix");
+            				break;
+            			case 9:
+            				break;
+            		}
+            	}
+            	break;
+            case 2:
+            	
+            	break;
+            case 3:
+            	
+            	break;
+            case 4:
+            	ArrayList<Location> toutesLesLocations = new ArrayList<Location>();
+            	for(Client c : lesClients){
+            		toutesLesLocations.addAll(c.getLocationDuMois());
+            	}
+            	archiveLocation(getNomFichier(), toutesLesLocations);
+            	break;
+            case 5:
+            	
+            	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            	
+        		System.out.println("Entrer la première date (jj/mm/aaaa)");
+        		String dateDeb = scan.next();
+        		Date date1 = sdf.parse(dateDeb);
+                
+        		System.out.println("Entrer la deucième date (jj/mm/aaaa)");
+        		String dateFin = scan.next();
+        		Date date2 = sdf.parse(dateFin);
+        		
+        		double recette = calculRecette(date1, date2);
+        		
+        		System.out.println("Le montant des recettes entre le " + dateDeb + " et le " + dateFin + " est " + recette + " €");
+            	break;
+  
+            }
             
             //do something
         }
