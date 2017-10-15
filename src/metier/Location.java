@@ -85,10 +85,7 @@ public class Location {
 		int i = 1;
 		for(Article a : lesArticles){
 			resultat += "Article " + i + " :"+ System.lineSeparator();
-			resultat += "- Référence : " + a.getReference() + System.lineSeparator();
-			resultat += "- Marque : " + a.getMarque() + System.lineSeparator();
-			resultat += "- Modèle : " + a.getModele() + System.lineSeparator();
-			resultat += "- Prix : " + a.getPrix() + System.lineSeparator()+ System.lineSeparator();
+			resultat += a.toString();
 			i++;
 		}
 		resultat += "Le client : " + leClient.getNom() + " " + leClient.getPrenom() + ", " + leClient.getAdresse() + System.lineSeparator();

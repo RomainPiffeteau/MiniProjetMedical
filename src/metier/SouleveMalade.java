@@ -41,6 +41,17 @@ public class SouleveMalade extends Article {
 		this.degrePivotage = degrePivotage;
 	}
 	
+	@Override
+	public String toString() {
+		String resultat = "";
+		resultat += "- Référence : " + this.getReference() + System.lineSeparator();
+		resultat += "- Marque : " + this.getMarque() + System.lineSeparator();
+		resultat += "- Modèle : " + this.getModele() + System.lineSeparator();
+		resultat += "- Prix : " + this.getPrix() + System.lineSeparator();
+		resultat += "- Capacité levage : " + this.getCapaciteLevage() + System.lineSeparator();
+		resultat += "- Degré pivotage : " + this.getDegrePivotage() + System.lineSeparator() + System.lineSeparator();
+		return resultat;
+	}
 	
 	
 	

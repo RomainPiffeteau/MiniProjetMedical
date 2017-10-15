@@ -2,7 +2,6 @@ package metier;
 
 public class MatelasAir extends Article{
 
-
 	/**
 	 * Attributs de la classe MatelasAir
 	 */
@@ -76,4 +75,16 @@ public class MatelasAir extends Article{
 		this.tempsGonflage = tempsGonflage;
 	}
 	
+	@Override
+	public String toString() {
+		String resultat = "";
+		resultat += "- Référence : " + this.getReference() + System.lineSeparator();
+		resultat += "- Marque : " + this.getMarque() + System.lineSeparator();
+		resultat += "- Modèle : " + this.getModele() + System.lineSeparator();
+		resultat += "- Prix : " + this.getPrix() + System.lineSeparator();
+		resultat += "- Largeur : " + this.getLargeur() + System.lineSeparator();
+		resultat += "- Longueur : " + this.getLongueur() + System.lineSeparator();
+		resultat += "- Hauteur : " + this.getHauteur() + System.lineSeparator() + System.lineSeparator();
+		return resultat;
+	}
 }

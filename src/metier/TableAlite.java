@@ -34,6 +34,16 @@ public class TableAlite extends Mobilier{
 		this.couleur = couleur;
 	}
 	
+	@Override
+	public String toString() {
+		String resultat = "";
+		resultat += "- Référence : " + this.getReference() + System.lineSeparator();
+		resultat += "- Marque : " + this.getMarque() + System.lineSeparator();
+		resultat += "- Modèle : " + this.getModele() + System.lineSeparator();
+		resultat += "- Prix : " + this.getPrix() + System.lineSeparator();
+		resultat += "- Couleur : " + this.getCouleur() + System.lineSeparator() + System.lineSeparator();
+		return resultat;
+	}
 	
 
 }

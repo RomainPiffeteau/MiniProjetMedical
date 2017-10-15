@@ -146,24 +146,47 @@ public class Magasin {
 		return numero;
     }
     
+    public static void creeJeuDEssai() throws ParseException{
+    	
+    	
+    	
+    }
     
     public static void main(String args[]) throws ParseException, IOException{
-    	//Test de la méthode tri()
+    	
     	ArrayList<Article> lesArticles = new ArrayList<Article>();
         ArrayList<Client> lesClients = new ArrayList<Client>();
           
     	ArrayList<Location> desLocations1 = new ArrayList<Location>();
         ArrayList<Location> desLocations2 = new ArrayList<Location>();
+        ArrayList<Location> desLocations3 = new ArrayList<Location>();
          
         Client client1 = new Client("Piveteau","Jean","17 rue du Puit","0240521548","pjean@gmail.com",desLocations1);
         Client client2 = new Client("Bonnet","Xavier","134 boulevard de Dalby","0632596203","bxavier@gmail.com",desLocations2);
+        Client client3 = new Client("Guerard","Louis","45 rue de la brousse","0625974562","lguerard@gmail.com",desLocations3);
 
-        Article article1 = new Article(1,"Dupont","AXW",100,7);
-        Article article2 = new Article(2,"Martin","CBF",200,8);
-        Article article3 = new Article(3,"Dubois","ERT",300,9);
-        Article article4 = new Article(4,"Rousseau","POI",400,10);
-        Article article5 = new Article(5,"Roger","VQZ",500,11);
-          
+        Article article1 = new FauteuilRoulant(15425,"Lifescan","AXW",100,7,62.25,10);
+        Article article2 = new FauteuilRoulant(25344,"Figui International","CBF",200,8,62.25,7);
+        Article article3 = new LitsMedicalise(15827,"Lifescan","ERT",300,9,250,220,70,20,true);
+        Article article4 = new LitsMedicalise(58356,"Vitalograph","POI",400,10,250,220,70,20,false);
+        Article article5 = new MatelasAir(96522,"BRAUN","VQZ",500,11,50,200,30,100,60);
+        Article article6 = new MatelasAir(86322,"Epione","VQZ",500,11,70,190,35,150,70);
+        Article article7 = new SouleveMalade(79846,"Chattanooga","VQZ",500,11,200,360);
+        Article article8 = new SouleveMalade(21356,"Beurer","VQZ",500,11,95,160);
+        Article article9 = new TableAlite(15846,"Lifescan","VQZ",500,11,200,220,50,30,"rouge");
+        Article article10 = new TableAlite(26567,"Beurer","VQZ",500,11,250,220,70,20,"vert");
+
+        lesArticles.add(article1);
+        lesArticles.add(article2);
+        lesArticles.add(article3);
+        lesArticles.add(article4);
+        lesArticles.add(article5);
+        lesArticles.add(article6);
+        lesArticles.add(article7);
+        lesArticles.add(article8);
+        lesArticles.add(article9);
+        lesArticles.add(article10);
+        
         ArrayList<Article> lesArticlesLocation1 = new ArrayList<Article>();
         lesArticlesLocation1.add(article1);
         lesArticlesLocation1.add(article2);
@@ -172,56 +195,76 @@ public class Magasin {
         ArrayList<Article> lesArticlesLocation2 = new ArrayList<Article>();
         lesArticlesLocation2.add(article4);
         lesArticlesLocation2.add(article5);
+        lesArticlesLocation2.add(article6);
+
+        ArrayList<Article> lesArticlesLocation3 = new ArrayList<Article>();
+        lesArticlesLocation2.add(article4);
+        lesArticlesLocation2.add(article7);
         
+        ArrayList<Article> lesArticlesLocation4 = new ArrayList<Article>();
+        lesArticlesLocation2.add(article7);
+        lesArticlesLocation2.add(article8);
+        lesArticlesLocation2.add(article9);
+        
+        ArrayList<Article> lesArticlesLocation5 = new ArrayList<Article>();
+        lesArticlesLocation2.add(article1);
+        
+        ArrayList<Article> lesArticlesLocation6 = new ArrayList<Article>();
+        lesArticlesLocation2.add(article2);
+        lesArticlesLocation2.add(article3);
+        lesArticlesLocation2.add(article9);
+        lesArticlesLocation2.add(article10);
         
         SimpleDateFormat sdformat = new SimpleDateFormat("dd/MM/yyyy");
-        Date d1 = sdformat.parse("07/10/2017");
-        Date d2 = sdformat.parse("09/11/2017");
-        Date d3 = sdformat.parse("08/10/2017");
-        Date d4 = sdformat.parse("08/12/2017");
+        Date d1Location1 = sdformat.parse("07/10/2017");
+        Date d2Location1 = sdformat.parse("09/10/2017");
+        Date d1Location2 = sdformat.parse("08/09/2017");
+        Date d2Location2 = sdformat.parse("16/10/2017");
+        Date d1Location3 = sdformat.parse("15/10/2017");
+        Date d2Location3 = sdformat.parse("30/10/2017");
+        Date d1Location4 = sdformat.parse("25/10/2017");
+        Date d2Location4 = sdformat.parse("15/11/2017");
+        Date d1Location5 = sdformat.parse("14/09/2017");
+        Date d2Location5 = sdformat.parse("16/09/2017");
+        Date d1Location6 = sdformat.parse("08/10/2017");
+        Date d2Location6 = sdformat.parse("04/12/2017");
         
-	      System.out.println(d1);
-	      System.out.println(d2);
-	      System.out.println(d3);
-        //Date test1 = sdf.parse("12/10/2017");
-        //Date test2 = sdf.parse("17/10/2017");
-        
-        System.out.println(d4);
-        Location location1 = new Location(d1,d2,lesArticlesLocation1,client1);
+        Location location1 = new Location(d1Location1,d2Location1,lesArticlesLocation1,client1);
         desLocations1 = client1.getLesLocations();
         desLocations1.add(location1);
         client1.setLesLocations(desLocations1);
         
-        Location location2 = new Location(d3,d4,lesArticlesLocation2,client1);
+        Location location2 = new Location(d1Location2,d2Location2,lesArticlesLocation2,client1);
+        desLocations1 = client1.getLesLocations();
+        desLocations1.add(location2);
+        client1.setLesLocations(desLocations1);
+        
+        Location location3 = new Location(d1Location3,d2Location3,lesArticlesLocation3,client2);
+        desLocations1 = client1.getLesLocations();
+        desLocations1.add(location2);
+        client1.setLesLocations(desLocations1);
+        
+        Location location4 = new Location(d1Location4,d2Location4,lesArticlesLocation4,client2);
+        desLocations1 = client1.getLesLocations();
+        desLocations1.add(location2);
+        client1.setLesLocations(desLocations1);
+        
+        Location location5 = new Location(d1Location5,d2Location5,lesArticlesLocation5,client3);
+        desLocations1 = client1.getLesLocations();
+        desLocations1.add(location2);
+        client1.setLesLocations(desLocations1);
+        
+        Location location6 = new Location(d1Location6,d2Location6,lesArticlesLocation6,client3);
         desLocations1 = client1.getLesLocations();
         desLocations1.add(location2);
         client1.setLesLocations(desLocations1);
 
-        lesClients.add(client1);lesClients.add(client2);
-        lesArticles.add(article3);lesArticles.add(article2);lesArticles.add(article1);lesArticles.add(article4);lesArticles.add(article5);
+        lesClients.add(client1);
+        lesClients.add(client2);
+        lesClients.add(client3);
+        
     	Magasin unMagasin = new Magasin(lesClients, lesArticles);
     	
-    	ArrayList<Location> locsEnCours = new ArrayList<Location>();
-    	locsEnCours = client1.getLesLocationsCourantes();
-    	for(Location l : locsEnCours){
-    		System.out.println(l.toString());
-    	}
-    	
-        GenerateurFic aff = new GenerateurFic();
-        
-        ArrayList<Location> test = new ArrayList<Location>();
-        for(Client c : lesClients){
-        	test.addAll(c.getLocationDuMois());
-        }
-        
-        aff.ecrireTruc(getNomFichier(), test);
-    	
-    	/*
-    	System.out.println(location1.getMontant());
-    	System.out.println(unMagasin.calculRecette(test1,test2));
-        
-    	unMagasin.tri("marque");*/
-        
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         Scanner scan = new Scanner(System.in);
         int line = 0;

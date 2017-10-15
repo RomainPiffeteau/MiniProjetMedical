@@ -41,4 +41,17 @@ public class FauteuilRoulant extends Article {
 		this.poids = poids;
 	}
 	
+	@Override 
+	public String toString(){
+		String resultat = "";
+		resultat += "- Référence : " + this.getReference() + System.lineSeparator();
+		resultat += "- Marque : " + this.getMarque() + System.lineSeparator();
+		resultat += "- Modèle : " + this.getModele() + System.lineSeparator();
+		resultat += "- Prix : " + this.getPrix() + System.lineSeparator();
+		resultat += "- Largeur d'assise : " + this.getLargeurAssise() + System.lineSeparator();
+		resultat += "- Poids : " + this.getPoids() + System.lineSeparator()+ System.lineSeparator();
+		return resultat;
+	}
+	
+	
 }

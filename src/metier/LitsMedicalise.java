@@ -32,6 +32,22 @@ public class LitsMedicalise extends Mobilier{
 	public void setRoulant(boolean roulant) {
 		this.roulant = roulant;
 	}
+
+	@Override
+	public String toString() {
+		String resultat = "";
+		resultat += "- Référence : " + this.getReference() + System.lineSeparator();
+		resultat += "- Marque : " + this.getMarque() + System.lineSeparator();
+		resultat += "- Modèle : " + this.getModele() + System.lineSeparator();
+		resultat += "- Prix : " + this.getPrix() + System.lineSeparator();
+		if(this.isRoulant()==true){
+			resultat += "- Roulant : oui" + System.lineSeparator() + System.lineSeparator();
+		}
+		else{
+			resultat += "- Roulant : non" + System.lineSeparator() + System.lineSeparator();
+		}
+		return resultat;
+	}
 	
 	
 	

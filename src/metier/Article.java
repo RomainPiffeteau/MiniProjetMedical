@@ -66,5 +66,14 @@ public class Article {
 	public void setNbStock(int nbStock) {
 		this.nbStock = nbStock;
 	}
+	
+	public String toString(){
+		String resultat = "";
+		resultat += "- Référence : " + this.getReference() + System.lineSeparator();
+		resultat += "- Marque : " + this.getMarque() + System.lineSeparator();
+		resultat += "- Modèle : " + this.getModele() + System.lineSeparator();
+		resultat += "- Prix : " + this.getPrix() + System.lineSeparator()+ System.lineSeparator();
+		return resultat;
+	}
 
 }
