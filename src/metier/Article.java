@@ -2,14 +2,23 @@ package metier;
 
 public class Article {
 	
-	//Attributs de la classe Article
+	/**
+	 * Attributs de la classe Article
+	 */
 	private int reference;
 	private String marque;
 	private String modele;
 	private double prix;
 	private int nbStock;
 	
-	//Constructeur de la classe Article
+  	/**
+	 * Constructeur de la classe Article
+	 * @param reference
+	 * @param marque
+	 * @param modele
+	 * @param prix
+	 * @param nbStock
+	 */
 	public Article(int reference, String marque, String modele, double prix, int nbStock) {
 		this.reference = reference;
 		this.marque = marque;
@@ -18,7 +27,6 @@ public class Article {
 		this.nbStock = nbStock;
 	}
 
-	//Accesseurs de la classe Article
 	public int getReference() {
 		return reference;
 	}

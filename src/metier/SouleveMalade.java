@@ -2,11 +2,22 @@ package metier;
 
 public class SouleveMalade extends Article {
 	
-	//Attributs de la classe SouleveMalade
+	/**
+	 * Attributs de la classe SouleveMalade
+	 */
 	private int capaciteLevage;
 	private double degrePivotage;
 	
-	//Constructeur de la classe SouleveMalade
+	/**
+	 * Constructeur de la classe SouleveMalade
+	 * @param reference
+	 * @param marque
+	 * @param modele
+	 * @param prix
+	 * @param nbStock
+	 * @param capaciteLevage
+	 * @param degrePivotage
+	 */
 	public SouleveMalade(int reference, String marque, String modele, double prix, int nbStock, int capaciteLevage,
 			double degrePivotage) {
 		super(reference, marque, modele, prix, nbStock);
@@ -14,7 +25,6 @@ public class SouleveMalade extends Article {
 		this.degrePivotage = degrePivotage;
 	}
 
-	//Accesseurs de la classe SouleveMalade
 	public int getCapaciteLevage() {
 		return capaciteLevage;
 	}

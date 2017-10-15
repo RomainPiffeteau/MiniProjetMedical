@@ -5,14 +5,22 @@ import java.util.Date;
 
 public class Location {
 	
-	//Attributs de la classe Location
+	/**
+	 * Attributs de la classe Location
+	 */
 	private Date dateDeb;
 	private Date dateFin;
 	private ArrayList<Article> lesArticles;
 	private Client leClient;
 	
 
-	//Constructeur de la classe Location
+	/**
+	 * Constructeur de la classe Location
+	 * @param dateDeb
+	 * @param dateFin
+	 * @param lesArticles
+	 * @param leClient
+	 */
 	public Location(Date dateDeb, Date dateFin, ArrayList<Article> lesArticles, Client leClient) {
 		super();
 		this.dateDeb = dateDeb;
@@ -21,7 +29,6 @@ public class Location {
 		this.leClient = leClient;
 	}
 
-	//Accesseurs de la classe Location
 	public Date getDateDeb() {
 		return dateDeb;
 	}
@@ -38,6 +45,10 @@ public class Location {
 		this.dateFin = dateFin;
 	}
 
+	/**
+	 * Méthode permettant d'obtenir le montant de la location
+	 * @return Un double contenant le montant total de la location
+	 */
 	public double getMontant() {
 		double montant = 0;
 		for(Article a : this.lesArticles){
@@ -62,6 +73,9 @@ public class Location {
 		this.leClient = leClient;
 	}
 
+	/**
+	 * Méthode permettant d'obtenir les informations concernant la location au format String
+	 */
 	@Override
 	public String toString() {
 		String resultat = "+ Location : " + System.lineSeparator();

@@ -1,8 +1,11 @@
 package metier;
 
 public class MatelasAir extends Article{
-	
-	//Attributs de la classe MatelasAir
+
+
+	/**
+	 * Attributs de la classe MatelasAir
+	 */
 	private double largeur;
 	private double longueur;
 	private double hauteur;
@@ -10,7 +13,19 @@ public class MatelasAir extends Article{
 	private int tempsGonflage;
 	
 	
-	//Constructeur de la classe MatelasAir
+	/**
+	 * Constructeur de la classe MatelasAir
+	 * @param reference
+	 * @param marque
+	 * @param modele
+	 * @param prix
+	 * @param nbStock
+	 * @param largeur
+	 * @param longueur
+	 * @param hauteur
+	 * @param poidsMax
+	 * @param tempsGonflage
+	 */
 	public MatelasAir(int reference, String marque, String modele, double prix, int nbStock, double largeur,
 			double longueur, double hauteur, double poidsMax, int tempsGonflage) {
 		super(reference, marque, modele, prix, nbStock);
@@ -21,7 +36,6 @@ public class MatelasAir extends Article{
 		this.tempsGonflage = tempsGonflage;
 	}
 
-	//Accesseurs de la classe MatelasAir
 	public double getLargeur() {
 		return largeur;
 	}

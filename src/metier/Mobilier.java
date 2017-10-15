@@ -2,13 +2,26 @@ package metier;
 
 public class Mobilier extends Article{
 	
-	//Attributs de la classe Mobilier
+	/**
+	 * Attributs de la classe Mobilier
+	 */
 	private int poidsMax;
 	private double longueur;
 	private double largeur;
 	private double hauteur;
 	
-	//Constructeur de la classe Mobilier	
+	/**
+	 * Constructeur de la classe Mobilier
+	 * @param reference
+	 * @param marque
+	 * @param modele
+	 * @param prix
+	 * @param nbStock
+	 * @param poidsMax
+	 * @param longueur
+	 * @param largeur
+	 * @param hauteur
+	 */
 	public Mobilier(int reference, String marque, String modele, double prix, int nbStock, int poidsMax,
 			double longueur, double largeur, double hauteur) {
 		super(reference, marque, modele, prix, nbStock);
@@ -18,7 +31,6 @@ public class Mobilier extends Article{
 		this.hauteur = hauteur;
 	}
 
-	//Acceseurs de classe Mobilier
 	public int getPoidsMax() {
 		return poidsMax;
 	}

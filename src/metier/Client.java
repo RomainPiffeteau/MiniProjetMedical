@@ -9,7 +9,9 @@ import java.util.Date;
 
 public class Client {
 	
-	//Attributs de la classe Client
+	/**
+	 * Attributs de la classe Client
+	 */
 	private String nom;
 	private String prenom;
 	private String adresse;
@@ -17,7 +19,15 @@ public class Client {
 	private String mail;
 	private ArrayList<Location> lesLocations;
 	
-	//Constructeur de la classe Client
+	/**
+	 * Constructeur de la classe Client
+	 * @param nom
+	 * @param prenom
+	 * @param adresse
+	 * @param telephone
+	 * @param mail
+	 * @param lesLocations
+	 */
 	public Client(String nom, String prenom, String adresse, String telephone, String mail,
 			ArrayList<Location> lesLocations) {
 		super();
@@ -29,7 +39,6 @@ public class Client {
 		this.lesLocations = lesLocations;
 	}
 
-	//Accesseurs de la classe Client
 	public String getNom() {
 		return nom;
 	}
@@ -78,6 +87,11 @@ public class Client {
 		this.lesLocations = lesLocations;
 	}	
 	
+	/**
+	 * Méthode permettant d'obtenir toutes les locations du client du mois courant 
+	 * @return Une ArrayList de locations
+	 * @throws ParseException
+	 */
 	public ArrayList<Location> getLocationDuMois() throws ParseException{
 		ArrayList<Location> uneListe = new ArrayList<Location>();
 		DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
@@ -119,10 +133,13 @@ public class Client {
 		return desLocations;
 	}
 
+	/**
+	 * Méthode permettant d'obtenir les informations concernant le client au format String
+	 */
 	@Override
 	public String toString() {
-		return "Client [nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse + ", telephone=" + telephone
-				+ ", mail=" + mail + "]";
+		return "Client [Nom = " + nom + ", Prénom = " + prenom + ", Adresse = " + adresse + ", Téléphone = " + telephone
+				+ ", Mail = " + mail + "]";
 	}
 
 }

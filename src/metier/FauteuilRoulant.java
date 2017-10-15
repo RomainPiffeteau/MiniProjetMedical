@@ -2,11 +2,22 @@ package metier;
 
 public class FauteuilRoulant extends Article {
 	
-	//Attributs de la classe FauteuilRoulant
+	/**
+	 * Attributs de la classe FauteuilRoulant
+	 */
 	private double largeurAssise;
 	private double poids;
 	
-	//Constructeur de la classe FauteuilRoulant
+	/**
+	 * Constructeur de la classe FauteuilRoulant
+	 * @param reference
+	 * @param marque
+	 * @param modele
+	 * @param prix
+	 * @param nbStock
+	 * @param largeurAssise
+	 * @param poids
+	 */
 	public FauteuilRoulant(int reference, String marque, String modele, double prix, int nbStock, double largeurAssise,
 			double poids) {
 		super(reference, marque, modele, prix, nbStock);
@@ -14,7 +25,6 @@ public class FauteuilRoulant extends Article {
 		this.poids = poids;
 	}
 	
-	//Accesseurs de la classe FauteuilRoulant
 	public double getLargeurAssise() {
 		return largeurAssise;
 	}
