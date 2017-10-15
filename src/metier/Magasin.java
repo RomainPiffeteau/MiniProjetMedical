@@ -43,6 +43,16 @@ public class Magasin {
 		this.lesArticles = lesArticles;
 	}
 	
+	public Client getClientFromString(String unNomClient, String unPrenomClient) {
+		Client leClient = null;
+		for(Client c : lesClients){
+			if(c.getNom().equals(unNomClient) && c.getPrenom().equals(unPrenomClient)){
+				leClient = c;
+			}
+		}
+		return leClient;
+	}
+	
 	//MÃ©thode permettant de trier les articles par rÃ©fÃ©rÃ©rence, marque, modÃ¨le ou par prix par jour de location 
 	//puis les affiche en utilisant la mÃ©thode affiche()
 	public void tri(String article){
@@ -166,9 +176,9 @@ public class Magasin {
         
         SimpleDateFormat sdformat = new SimpleDateFormat("dd/MM/yyyy");
         Date d1 = sdformat.parse("07/10/2017");
-        Date d2 = sdformat.parse("09/10/2017");
+        Date d2 = sdformat.parse("09/11/2017");
         Date d3 = sdformat.parse("08/10/2017");
-        Date d4 = sdformat.parse("08/10/2017");
+        Date d4 = sdformat.parse("08/12/2017");
         
 	      System.out.println(d1);
 	      System.out.println(d2);
@@ -220,7 +230,7 @@ public class Magasin {
         	System.out.println("BONJOUR !");
         	System.out.println("1 - Afficher l'ensemble des articles");
         	System.out.println("2 - Enregistrer une location de matériel");
-        	System.out.println("3 - Afficher l'ensemble des locations pour un client");
+        	System.out.println("3 - Afficher l'ensemble des locations en cours pour un client");
         	System.out.println("4 - Archiver les locations du mois");
         	System.out.println("5 - Montant total des recettes entre deux dates");
         	System.out.println("9 - Quitter");
@@ -255,10 +265,66 @@ public class Magasin {
             	}
             	break;
             case 2:
-            	
+            	System.out.println("Choisir le client : ");
+            	for(Client c : lesClients)
+            		System.out.println(c.toString());
+            	System.out.println("Entrez le nom du client");
+            	String nomClient;
+            	nomClient = scan.next();
+            	System.out.println("Entrez le prénom du client");
+            	String prenomClient;
+            	prenomClient = scan.next();
+            	Client unClient = unMagasin.getClientFromString(nomClient, prenomClient);
+            	if(unClient == null)
+            		System.out.print("Ce client n'existe pas");
+            	else{
+            		System.out.println("Choisir le(s) article(s) : ");
+            		int nb = 1;
+            		for(Article a : lesArticles){
+            			System.out.println(nb + " - Référence : " + a.getReference() + ", marque : " + a.getMarque() + ", modèle : " + a.getModele() + " ");
+            			nb++;
+            		}
+            		ArrayList<Article> laListeDArticles = new ArrayList<Article>();
+            		int numeroArticle = 0;
+            		while(numeroArticle != 99){
+            			System.out.println("Tapez le numéro correspondant à l'article souhaité (99 pour quitter)");
+            			numeroArticle = scan.nextInt();
+            			if(numeroArticle != 99){
+                			Article lArticle = lesArticles.get(numeroArticle-1);
+                			laListeDArticles.add(lArticle);
+            			}
+            		}
+            		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");        
+            		System.out.println("Entrer la date de début de location (jj/mm/aaaa)");
+            		String dateDeb = scan.next();
+            		Date dateDebutLocation = sdf.parse(dateDeb);                  
+            		System.out.println("Entrer la date de fin de location (jj/mm/aaaa)");
+            		String dateFin = scan.next();
+            		Date dateFinLocation = sdf.parse(dateFin);
+            		
+            		Location laLocation = new Location(dateDebutLocation, dateFinLocation, laListeDArticles, unClient);
+            		ArrayList<Location> lesLocationsClient = unClient.getLesLocations();
+            		lesLocationsClient.add(laLocation);
+            		unClient.setLesLocations(lesLocationsClient);
+            		System.out.println("Location créée");
+            		System.out.println(laLocation.toString());
+            		
+            	}
             	break;
             case 3:
-            	
+            	for(Client c : lesClients)
+            		System.out.println(c.toString());
+            	System.out.println("Entrez le nom du client");
+            	String line3;
+            	line3 = scan.next();
+            	System.out.println("Entrez le prénom du client");
+            	String line4;
+            	line4 = scan.next();
+            	Client unClient2 = unMagasin.getClientFromString(line3, line4);
+            	if(unClient2 == null)
+            		System.out.print("Ce client n'existe pas");
+            	else
+            		System.out.println(unClient2.getLesLocationsCourantes());
             	break;
             case 4:
             	ArrayList<Location> toutesLesLocations = new ArrayList<Location>();

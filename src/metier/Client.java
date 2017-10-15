@@ -97,7 +97,11 @@ public class Client {
 		}
 		return uneListe;
 	}
-	
+	/**
+	 * Méthode permettant d'obtenir les locations courantes du client
+	 * @return Une ArrayList de locations
+	 * @throws ParseException
+	 */
 	public ArrayList<Location> getLesLocationsCourantes() throws ParseException{
 		ArrayList<Location> desLocations = new ArrayList<Location>();
 		
@@ -108,12 +112,17 @@ public class Client {
 		Date dateAjd = formatter.parse(formatter.format(today));
 		
 		for(Location l : this.lesLocations){
-			System.out.println("--------" + dateAjd);
 			if(l.getDateFin().after(dateAjd) && l.getDateDeb().before(dateAjd) || l.getDateDeb().equals(dateAjd) ||  l.getDateFin().equals(dateAjd)){
 				desLocations.add(l);
 			}
 		}
 		return desLocations;
+	}
+
+	@Override
+	public String toString() {
+		return "Client [nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse + ", telephone=" + telephone
+				+ ", mail=" + mail + "]";
 	}
 
 }

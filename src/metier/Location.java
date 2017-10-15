@@ -79,7 +79,7 @@ public class Location {
 		}
 		resultat += "Le client : " + leClient.getNom() + " " + leClient.getPrenom() + ", " + leClient.getAdresse() + System.lineSeparator();
 		resultat += "Montant : " + this.getMontant();
-		resultat += System.lineSeparator() + System.lineSeparator()+ System.lineSeparator();
+		resultat += System.lineSeparator();
 				
 		return resultat;
 	}
