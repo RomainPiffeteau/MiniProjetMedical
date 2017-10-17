@@ -114,15 +114,10 @@ public class Magasin {
     					
     				}
     				if(l.getDateFin().before(dateFin)){
-    					System.out.println("tto");
     					dateFinCalcul = l.getDateFin();
     				}
-    				System.out.println("Date Deb "+ dateDebCalcul);
-    				System.out.println("Date fin "+ dateFinCalcul);
         			long diff = dateFinCalcul.getTime()-dateDebCalcul.getTime();
-        			System.out.println(diff);
         			float days = ((float)diff/(float)(1000.0*60.0*60.0*24.0))+1;
-        			System.out.println(days);
         			recette += l.getMontant()*days;
     			}
     		}
@@ -287,7 +282,7 @@ public class Magasin {
             		System.out.println("2 - Afficher l'ensemble des articles par marque");
             		System.out.println("3 - Afficher l'ensemble des articles par modèle");
             		System.out.println("4 - Afficher l'ensemble des articles par prix par jour de location");
-            		System.out.println("9 - Quitter");
+            		System.out.println("9 - Retour");
             		line2 = scan.nextInt();
             		switch(line2){
             			case 1:
