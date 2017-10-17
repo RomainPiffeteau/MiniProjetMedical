@@ -15,18 +15,23 @@ import java.util.Date;
 import java.util.Scanner;
 public class Magasin {
 	
-	//Attributs de la classe Magasin
+	/**
+	 * Attributs de la classe Magasin
+	 */
 	private static ArrayList<Client> lesClients;
 	private ArrayList<Article> lesArticles;
 	
-	//Constructeur de la classe Magasin
+	/**
+	 * Constructeur de la classe Magasin
+	 * @param lesClients
+	 * @param lesArticles
+	 */
 	public Magasin(ArrayList<Client> lesClients, ArrayList<Article> lesArticles) {
 		super();
 		this.lesClients = lesClients;
 		this.lesArticles = lesArticles;
 	}
 	
-	//Accesseurs de la classe Magasin
 	public ArrayList<Client> getLesClients() {
 		return lesClients;
 	}
@@ -43,6 +48,12 @@ public class Magasin {
 		this.lesArticles = lesArticles;
 	}
 	
+	/**
+	 * Méthode permettant de récupérer un objet Client à partir de son nom et de son prénom passé en paramètre
+	 * @param unNomClient
+	 * @param unPrenomClient
+	 * @return Retourne un objet Client
+	 */
 	public Client getClientFromString(String unNomClient, String unPrenomClient) {
 		Client leClient = null;
 		for(Client c : lesClients){
@@ -53,8 +64,11 @@ public class Magasin {
 		return leClient;
 	}
 	
-	//MÃ©thode permettant de trier les articles par rÃ©fÃ©rÃ©rence, marque, modÃ¨le ou par prix par jour de location 
-	//puis les affiche en utilisant la mÃ©thode affiche()
+	/**
+	 * Méthode permettant de trier les articles par référence, marque, modèle ou par prix par jour de location
+	 * puis les affiche en utilisant la méthode affiche()
+	 * @param article
+	 */
 	public void tri(String article){
         switch(article){
         case "reference":
@@ -77,7 +91,12 @@ public class Magasin {
         
 	}
 	
-	//Méthode 
+	/**
+	 * Méthode permettant d'archiver les locations à partir d'une liste de location et d'un nom de fichier passés en paramètres  
+	 * @param nomDeFichier
+	 * @param liste
+	 * @throws IOException
+	 */
 	public static void archiveLocation(String nomDeFichier, ArrayList<Location> liste)  throws IOException {
         DataOutputStream fluxEcriture = new DataOutputStream(new FileOutputStream(nomDeFichier));
         try{
@@ -91,17 +110,24 @@ public class Magasin {
     }
     
     
-	//MÃ©thode permettant d'afficher la liste des articles
+	/**
+	 * Méthode peremttant d'afficher une liste d'articles
+	 */
     public void affiche(){
     	for(int i = 0;i<this.lesArticles.size();i++){
-    		System.out.println("RÃ©fÃ©rence : "+this.lesArticles.get(i).getReference()+
+    		System.out.println("Référence : "+this.lesArticles.get(i).getReference()+
             		" Marque : "+this.lesArticles.get(i).getMarque()+
-            		" ModÃ¨le : "+this.lesArticles.get(i).getModele()+
+            		" Modèle : "+this.lesArticles.get(i).getModele()+
             		" Prix : "+this.lesArticles.get(i).getPrix());
         }
     }
     
-    //MÃ©thode permettant de calcul le total des recettes sur une pÃ©riode donnÃ©e
+   /**
+    * Méthode permettant de calculer le total des recettes sur une période donnée avec deux dates passées en paramètres 
+    * @param dateDeb
+    * @param dateFin
+    * @return Un double répresentant le résultat du calcul de la recette sur la période 
+    */
     public static double calculRecette(Date dateDeb, Date dateFin){
     	double recette = 0;
     	for(Client c : lesClients){
@@ -125,6 +151,11 @@ public class Magasin {
     	return recette;    	
     }
     
+    /**
+     * Méthode permettant de générer un nom de fichier à partir du mois courant
+     * @return Un String représentant le nom du fichier
+     * @throws ParseException
+     */
     public static String getNomFichier() throws ParseException{
     	String numero = "";
     	DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
@@ -147,6 +178,12 @@ public class Magasin {
     	
     }
     
+    /**
+     * Méthode permettant de lancer le programme et son menu pour que l'utilisateur puisse utiliser l'application
+     * @param args
+     * @throws ParseException
+     * @throws IOException
+     */
     public static void main(String args[]) throws ParseException, IOException{
     	
     	ArrayList<Article> lesArticles = new ArrayList<Article>();
@@ -390,7 +427,6 @@ public class Magasin {
   
             }
             
-            //do something
         }
 
         in.close();

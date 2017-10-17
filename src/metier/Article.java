@@ -67,6 +67,9 @@ public class Article {
 		this.nbStock = nbStock;
 	}
 	
+	/**
+	 * Méthode permettant d'obtenir les informations concernant l'article au format String
+	 */
 	public String toString(){
 		String resultat = "";
 		resultat += "- Référence : " + this.getReference() + System.lineSeparator();
