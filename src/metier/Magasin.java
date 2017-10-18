@@ -172,11 +172,6 @@ public class Magasin {
 		return numero;
     }
     
-    public static void creeJeuDEssai() throws ParseException{
-    	
-    	
-    	
-    }
     
     /**
      * Méthode permettant de lancer le programme et son menu pour que l'utilisateur puisse utiliser l'application
