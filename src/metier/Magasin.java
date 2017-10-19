@@ -225,22 +225,22 @@ public class Magasin {
         lesArticlesLocation2.add(article6);
 
         ArrayList<Article> lesArticlesLocation3 = new ArrayList<Article>();
-        lesArticlesLocation2.add(article4);
-        lesArticlesLocation2.add(article7);
+        lesArticlesLocation3.add(article4);
+        lesArticlesLocation3.add(article7);
         
         ArrayList<Article> lesArticlesLocation4 = new ArrayList<Article>();
-        lesArticlesLocation2.add(article7);
-        lesArticlesLocation2.add(article8);
-        lesArticlesLocation2.add(article9);
+        lesArticlesLocation4.add(article7);
+        lesArticlesLocation4.add(article8);
+        lesArticlesLocation4.add(article9);
         
         ArrayList<Article> lesArticlesLocation5 = new ArrayList<Article>();
-        lesArticlesLocation2.add(article1);
+        lesArticlesLocation5.add(article1);
         
         ArrayList<Article> lesArticlesLocation6 = new ArrayList<Article>();
-        lesArticlesLocation2.add(article2);
-        lesArticlesLocation2.add(article3);
-        lesArticlesLocation2.add(article9);
-        lesArticlesLocation2.add(article10);
+        lesArticlesLocation6.add(article2);
+        lesArticlesLocation6.add(article3);
+        lesArticlesLocation6.add(article9);
+        lesArticlesLocation6.add(article10);
         
         SimpleDateFormat sdformat = new SimpleDateFormat("dd/MM/yyyy");
         Date d1Location1 = sdformat.parse("07/10/2017");
@@ -267,28 +267,29 @@ public class Magasin {
         client1.setLesLocations(desLocations1);
         
         Location location3 = new Location(d1Location3,d2Location3,lesArticlesLocation3,client2);
-        desLocations1 = client1.getLesLocations();
-        desLocations1.add(location2);
-        client1.setLesLocations(desLocations1);
+        desLocations2 = client2.getLesLocations();
+        desLocations2.add(location3);
+        client2.setLesLocations(desLocations2);
         
         Location location4 = new Location(d1Location4,d2Location4,lesArticlesLocation4,client2);
-        desLocations1 = client1.getLesLocations();
-        desLocations1.add(location2);
-        client1.setLesLocations(desLocations1);
+        desLocations2 = client2.getLesLocations();
+        desLocations2.add(location4);
+        client2.setLesLocations(desLocations2);
         
         Location location5 = new Location(d1Location5,d2Location5,lesArticlesLocation5,client3);
-        desLocations1 = client1.getLesLocations();
-        desLocations1.add(location2);
-        client1.setLesLocations(desLocations1);
+        desLocations3 = client3.getLesLocations();
+        desLocations3.add(location5);
+        client3.setLesLocations(desLocations3);
         
         Location location6 = new Location(d1Location6,d2Location6,lesArticlesLocation6,client3);
-        desLocations1 = client1.getLesLocations();
-        desLocations1.add(location2);
-        client1.setLesLocations(desLocations1);
+        desLocations3 = client3.getLesLocations();
+        desLocations3.add(location6);
+        client3.setLesLocations(desLocations3);
 
         lesClients.add(client1);
         lesClients.add(client2);
         lesClients.add(client3);
+
         
     	Magasin unMagasin = new Magasin(lesClients, lesArticles);
     	
